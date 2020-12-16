@@ -55,3 +55,9 @@ img{
 #title{
     font-weight: bold;
 }
+
+@media(max-width: 760px){
+    body{
+        overflow: hidden;
+    }
+}
