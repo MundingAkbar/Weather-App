@@ -16,7 +16,7 @@
                 var key = "fc08e6d8897057af8f94b0e7564eec72";
                 
                 $.ajax({
-                    url: 'http://api.openweathermap.org/data/2.5/weather',
+                    url: 'https://api.openweathermap.org/data/2.5/weather',
                     dataType: 'json',
                     type: 'GET',
                     data: {q:city,appid: key, units: 'metric'},
@@ -24,7 +24,7 @@
                     success: function(data){
                         var wf = '';
                         $.each(data.weather, function(index,val){
-                            wf += "<p><h2 id='title'>"+data.name+"</h2> <img src='http://openweathermap.org/img/wn/"+val.icon+"@2x.png'/> </p><h4 id='temp'>"+data.main.temp+'&deg;C'+'|'+val.main+', '+val.description+"</h4>";
+                            wf += "<p><h2 id='title'>"+data.name+"</h2> <img src='https://openweathermap.org/img/wn/"+val.icon+"@2x.png'/> </p><h4 id='temp'>"+data.main.temp+'&deg;C'+'|'+val.main+', '+val.description+"</h4>";
                         });
                         $("#showWeatherForecast").html(wf);
                     }
