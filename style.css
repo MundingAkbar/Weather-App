@@ -11,6 +11,10 @@ body{
     overflow-x: hidden;
 }
 
+.content{
+    overflow-x: hidden;
+}
+
 #background{
     width: 100vw;
     height: 100vh;
@@ -56,8 +60,15 @@ img{
     font-weight: bold;
 }
 
-@media(max-width: 760px){
+@media(max-width: 560px){
     body{
         overflow: hidden;
+    }
+    #temp{
+        font-size: 13px;
+        width: 200px;
+    }
+    #city{
+        width: 200px;
     }
 }
