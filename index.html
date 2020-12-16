@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#getWeatherForecast").click(function(){
+                console.log("clicked");
+                var city = $("#city").val();
+                var key = "fc08e6d8897057af8f94b0e7564eec72";
+                
+                $.ajax({
+                    url: 'http://api.openweathermap.org/data/2.5/weather',
+                    dataType: 'json',
+                    type: 'GET',
+                    data: {q:city,appid: key, units: 'metric'},
+
+                    success: function(data){
+                        var wf = '';
+                        $.each(data.weather, function(index,val){
+                            wf += "<p><h2 id='title'>"+data.name+"</h2> <img src='http://openweathermap.org/img/wn/"+val.icon+"@2x.png'/> </p><h4 id='temp'>"+data.main.temp+'&deg;C'+'|'+val.main+', '+val.description+"</h4>";
+                        });
+                        $("#showWeatherForecast").html(wf);
+                    }
+                })
+            });
+        })
+    </script>
+    <title>Weather app</title>
+</head>
+<body>
+    <div id="background"></div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand">Weather App</a>
+        </div>
+      </nav>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div id="showWeatherForecast"></div>
+           <input type="text" id="city" class="form-control me-2 mt-2" placeholder="Country/City">
+          <button id="getWeatherForecast" class="btn btn-outline-light bg-dark mt-2">Get Weather</button>
+        </div>
+    </div>
+    
+</body>
+</html>

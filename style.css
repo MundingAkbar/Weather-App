@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+#background{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-image: url("rain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+#city{
+    width: 500px;
+    z-index: 999;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}
+
+
+#getWeatherForecast{
+    width: 200px;
+    z-index: 999;
+}
+
+#showWeatherForecast{
+    text-align: center;
+    z-index: 999;
+    color: white;
+}
+
+#temp{
+    background-color: black;
+    padding: 10px;
+    width: 500px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#title{
+    font-weight: bold;
+}
